@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "antd";
 
-const AddTask = ({fetchTasks}) => {
+const AddTask = () => {
   const [formData, setFormData] = React.useState({
     title: "",
     description: "",
     status: "",
   });
-  
+
   const navigate = useNavigate();
 
   function handleChange(event) {

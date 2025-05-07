@@ -1,0 +1,10 @@
+#taskList li {
+  background-color: rgb(198, 198, 198);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+#taskList {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 2rem;
+}

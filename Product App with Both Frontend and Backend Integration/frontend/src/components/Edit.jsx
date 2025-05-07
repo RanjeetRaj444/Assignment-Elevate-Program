@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input, Modal, Select } from "antd";
+import { Button, Form, Input, Modal } from "antd";
 const Edit = ({ id, fetchTasks }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -14,6 +14,7 @@ const Edit = ({ id, fetchTasks }) => {
   };
 
   function handleChange(e) {
+    console.log({ [e.target.name]: e.target.value });
     setEditData({ ...editData, [e.target.name]: e.target.value });
   }
 
@@ -61,7 +62,7 @@ const Edit = ({ id, fetchTasks }) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Form>
+        <Form style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           <label>Title</label>
           <Input
             name="title"
@@ -77,16 +78,15 @@ const Edit = ({ id, fetchTasks }) => {
             onChange={handleChange}
           />
           <label>Status</label>
-          <Select
+          <select
             name="status"
             onChange={handleChange}
-            value={editData.status}
-            style={{ width: 120 }}
-            options={[
-              { value: "Completed", label: "Completed" },
-              { value: "Pending", label: "Pending" },
-            ]}
-          />
+            style={{ padding: ".5rem", borderRadius: ".5rem" }}
+          >
+            <option value={editData.status}>{editData.status}</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+          </select>
         </Form>
       </Modal>
     </>
