@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      padding: 2rem;
+    }
+    .main-container {
+      display: flex;
+      background-color: antiquewhite;
+      align-items: center ;
+      justify-content: center;
+      gap: 2rem;
+      height: 50vh;
+      width: 80vw;
+      padding: 2rem;
+      margin: auto;
+      /* position: relative; */
+      /* overflow-y: auto; */
+
+    }
+    .main-container div {
+      display: flex;
+      width: 100px;
+      height: 100px;
+      /* background-color: rgb(95, 213, 95); */
+      padding: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    .position-abs {
+      /* position: absolute; */
+      /* top: 0; */
+      /* left: 0; */
+      background-color: yellow;
+    }
+    .position-rel {
+      position: relative;
+      top: 0;
+      /* left: 0; */
+      background-color: rgb(95, 209, 95);
+    }
+    .position-sticky {
+      /* position: absolute; */
+      /* top: 0; */
+      /* left: 0; */
+      background-color: rgb(196, 209, 95);
+    }
+    .position-fix {
+      /* position: absolute; */
+      /* top: 0;/ */
+      /* left: 0; */
+      background-color: rgb(95, 202, 209);
+    }
+  </style>
+  <body class="body">
+    <div class="main-container">
+      <div class="position-abs">Position abs</div>
+      <div class="position-rel">position relative</div>
+      <div class="position-fix">position fixed</div>
+      <div class="position-sticky">position sticky</div>
+    </div>
+  </body>
+  <!-- <script>
+    const form = document.getElementById("myForm");
+    const name = document.getElementById("name");
+    const password = document.getElementById("password");
+    const taskContainer = document.getElementById("task-container");
+    // console.log(form);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      showTasks();
+      e.target.reset();
+    });
+
+    let data = [];
+    function showTasks() {
+      data.push({ name: name.value, password: password.value });
+      console.log(data);
+      taskContainer.innerHTML = data.map(
+        (ele, ind) => `
+      <div key=${ind}>
+        <h3>Name : ${ele.name} </h3>
+        </div>
+      `
+      );
+    }
+  </script> -->
+</html>
