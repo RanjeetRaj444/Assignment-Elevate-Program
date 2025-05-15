@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useContext, useEffect } from "react";
+import axios from "axios";
 
 const AuthContext = createContext();
 
@@ -11,10 +11,10 @@ export const AuthProvider = ({ children }) => {
 
   // Check if user is already logged in from localStorage
   useEffect(() => {
-    const storedAuth = localStorage.getItem('devboard_auth');
-    const storedUser = localStorage.getItem('devboard_user');
-    
-    if (storedAuth === 'true' && storedUser) {
+    const storedAuth = localStorage.getItem("devboard_auth");
+    const storedUser = localStorage.getItem("devboard_user");
+
+    if (storedAuth === "true" && storedUser) {
       setIsAuthenticated(true);
       setUser(JSON.parse(storedUser));
     }
@@ -23,25 +23,27 @@ export const AuthProvider = ({ children }) => {
   const login = async () => {
     setLoading(true);
     setError(null);
-    
+
     try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users/1');
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users/6"
+      );
       const userData = response.data;
-      
+
       // Add default status message to user data
       userData.statusMessage = "Ready to code! 💻";
-      
+
       setUser(userData);
       setIsAuthenticated(true);
-      
+
       // Store auth state in localStorage
-      localStorage.setItem('devboard_auth', 'true');
-      localStorage.setItem('devboard_user', JSON.stringify(userData));
-      
+      localStorage.setItem("devboard_auth", "true");
+      localStorage.setItem("devboard_user", JSON.stringify(userData));
+
       setLoading(false);
       return true;
     } catch (err) {
-      setError('Failed to log in. Please try again.');
+      setError("Failed to log in. Please try again.");
       setLoading(false);
       return false;
     }
@@ -50,17 +52,17 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
-    
+
     // Remove auth state from localStorage
-    localStorage.removeItem('devboard_auth');
-    localStorage.removeItem('devboard_user');
+    localStorage.removeItem("devboard_auth");
+    localStorage.removeItem("devboard_user");
   };
 
   const updateStatus = (newStatus) => {
     if (user) {
       const updatedUser = { ...user, statusMessage: newStatus };
       setUser(updatedUser);
-      localStorage.setItem('devboard_user', JSON.stringify(updatedUser));
+      localStorage.setItem("devboard_user", JSON.stringify(updatedUser));
       return true;
     }
     return false;
@@ -73,7 +75,7 @@ export const AuthProvider = ({ children }) => {
     logout,
     loading,
     error,
-    updateStatus
+    updateStatus,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
