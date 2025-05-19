@@ -28,6 +28,7 @@ const useFetchWeather = (city) => {
         });
 
         const weatherData = {
+          id: response.data.weather[0].id,
           city: response.data.name,
           country: response.data.sys.country,
           temperature: response.data.main.temp,
@@ -39,7 +40,7 @@ const useFetchWeather = (city) => {
           feelsLike: response.data.main.feels_like,
           timestamp: new Date(response.data.dt * 1000).toLocaleTimeString(),
         };
-
+        // console.log(response.data);
         setData(weatherData);
       } catch (err) {
         setError(
