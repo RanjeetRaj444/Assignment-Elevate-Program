@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0071e3;
+  --secondary: #86868b;
+  --success: #2fd158;
+  --warning: #ff9f0a;
+  --error: #ff3b30;
+  --background: #f5f5f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: #1d1d1f;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@layer components {
+  .form-input {
+    @apply w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition duration-200;
+  }
+
+  .form-input.error {
+    @apply border-error-500 animate-pulse-error;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-secondary-700 mb-1;
+  }
+
+  .form-error {
+    @apply text-error-500 text-xs mt-1 animate-fade-in;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 transform;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-900 hover:bg-secondary-200 active:bg-secondary-300 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-error-500 text-white hover:opacity-90 active:opacity-100 active:scale-95;
+  }
+
+  .candidate-card {
+    @apply bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md;
+  }
+}

@@ -40,7 +40,6 @@ const useFetchWeather = (city) => {
           feelsLike: response.data.main.feels_like,
           timestamp: new Date(response.data.dt * 1000).toLocaleTimeString(),
         };
-        // console.log(response.data);
         setData(weatherData);
       } catch (err) {
         setError(
