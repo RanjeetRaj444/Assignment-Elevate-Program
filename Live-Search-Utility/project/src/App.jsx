@@ -7,14 +7,11 @@ function App() {
   const [dataType, setDataType] = useState('users');
   const [searchFields, setSearchFields] = useState([]);
   
-  // Get the current data based on the selected type
   const currentData = dataType === 'users' ? users : products;
   
-  // Set search fields based on data type
   const handleDataTypeChange = (type) => {
     setDataType(type);
     
-    // Set specific fields to search within for each data type
     if (type === 'users') {
       setSearchFields(['name.first', 'name.last', 'email', 'location.city', 'location.country', 'tags']);
     } else {
@@ -22,7 +19,6 @@ function App() {
     }
   };
   
-  // Update search fields when data type changes
   useState(() => {
     handleDataTypeChange(dataType);
   }, []);
