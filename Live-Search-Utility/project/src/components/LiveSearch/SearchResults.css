@@ -1,0 +1,80 @@
+.search-results {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 10;
+  border: 1px solid #E5E7EB;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.result-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  color: #1F2937;
+  font-size: 14px;
+  line-height: 1.5;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item:hover {
+  background-color: #F9FAFB;
+}
+
+.result-item.focused {
+  background-color: #F3F4F6;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #4F46E5;
+  background-color: rgba(79, 70, 229, 0.1);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+.search-results::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: #F9FAFB;
+  border-radius: 8px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 8px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
