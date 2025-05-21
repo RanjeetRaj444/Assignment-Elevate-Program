@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function TaskForm({ onAddTask }) {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('work');
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("work");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-    
+
     onAddTask(title.trim(), category);
-    setTitle('');
+    setTitle("");
   };
 
   return (
@@ -30,7 +30,9 @@ function TaskForm({ onAddTask }) {
         <option value="personal">Personal</option>
         <option value="learning">Learning</option>
       </select>
-      <button type="submit" className="add-button">Add Task</button>
+      <button type="submit" className="add-button">
+        Add Task
+      </button>
     </form>
   );
 }
