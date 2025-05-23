@@ -1,0 +1,45 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.modal {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  padding: 2rem;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  width: 200px;
+  height: 200px;
+  background-color: aliceblue;
+  /* display: none; */
+  z-index: 1000;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.back {
+  width: 100wh;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgb(199, 199, 199);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.open {
+  display: block;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
