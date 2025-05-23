@@ -1,0 +1,34 @@
+.contact-list {
+  margin-top: 1rem;
+}
+
+.contacts-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.contact-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.empty-list {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-list p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,89 @@
+.contact-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.favorite-button,
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.favorite-button:hover {
+  background-color: rgba(250, 204, 21, 0.1);
+}
+
+.delete-button:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.star-icon {
+  color: #94a3b8;
+  font-size: 1.25rem;
+}
+
+.star-icon.favorite {
+  color: #facc15;
+}
+
+.delete-button {
+  color: #94a3b8;
+}
+
+.delete-button:hover {
+  color: #ef4444;
+}
+
+.contact-email {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  word-break: break-all;
+}
+
+.contact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
