@@ -14,3 +14,16 @@
 
 // Input: nums = [2,0,1]
 // Output: [0,1,2]
+
+var sortColors = function (a) {
+  for (let i = 0, l = 0, r = a.length - 1; i <= r; )
+    if (a[i] === 0) swap(a, i++, l++);
+    else if (a[i] === 2) swap(a, i, r--);
+    else ++i;
+};
+
+const swap = (a, i, j) => {
+  const t = a[i];
+  a[i] = a[j];
+  a[j] = t;
+};
