@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-product-api",
+  "version": "1.0.0",
+  "description": "This project is a simple RESTful API for managing products using Node.js core modules. It supports CRUD operations, search and filtering, file-based persistence, validation, error handling, rate limiting, and logging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
