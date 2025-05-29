@@ -18,4 +18,4 @@ function longestSubstringWithAtMostKDistinctCharacters(s, k) {
     }
 
     return maxLength;
-}
+}   //kbducizbjsn
