@@ -1,6 +1,7 @@
 import React from "react";
 
 const Avatar = ({ imageUrl }) => {
+  //this is avatart components
   return (
     <div
       className="avatar"
