@@ -22,5 +22,5 @@ function longestSubarrayWithSumK(arr, K) {
     }
   }
 
-  return maxLength;
+  return maxLength;//
 }
