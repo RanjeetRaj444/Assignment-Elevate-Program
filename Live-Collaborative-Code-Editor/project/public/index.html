@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaborative Code Editor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Room Selection Screen -->
+      <div id="room-selection" class="room-selection">
+        <div class="welcome-card">
+          <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <h1>CodeSync</h1>
+          </div>
+          <p class="subtitle">Real-time collaborative code editor</p>
+
+          <form id="join-form" class="join-form">
+            <div class="input-group">
+              <label for="username">Your Name</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter your name..."
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="room-id">Room ID</label>
+              <input
+                type="text"
+                id="room-id"
+                placeholder="Enter room ID or leave blank to create new..."
+              />
+            </div>
+
+            <button type="submit" class="join-btn">
+              <span>Join Room</span>
+              <div class="btn-shine"></div>
+            </button>
+          </form>
+
+          <div class="quick-actions">
+            <button id="create-room-btn" class="quick-btn">
+              <span>🎲</span>
+              Create Random Room
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editor Screen -->
+      <div id="editor-screen" class="editor-screen hidden">
+        <header class="editor-header">
+          <div class="room-info">
+            <div class="room-badge">
+              <span class="room-label">Room:</span>
+              <span id="current-room-id" class="room-id"></span>
+              <button id="copy-room-btn" class="copy-btn" title="Copy room ID">
+                📋
+              </button>
+            </div>
+            <div class="connection-status">
+              <div
+                id="connection-indicator"
+                class="status-indicator connected"
+              ></div>
+              <span id="connection-text">Connected</span>
+            </div>
+          </div>
+
+          <div class="users-section">
+            <div class="users-label">Active Users:</div>
+            <div id="users-list" class="users-list"></div>
+            <button id="leave-room-btn" class="leave-btn">Leave Room</button>
+          </div>
+        </header>
+
+        <div class="editor-container">
+          <div class="editor-wrapper">
+            <textarea id="code-editor"></textarea>
+            <div id="cursors-overlay" class="cursors-overlay"></div>
+            <!-- Run Button and Output Area -->
+            <div class="run-section">
+              <button id="run-code-btn" class="run-btn">▶️ Run</button>
+              <pre id="output-area" class="output-area"></pre>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <div class="sidebar-section">
+              <h3>🚀 Features</h3>
+              <ul class="feature-list">
+                <li>✅ Real-time collaboration</li>
+                <li>✅ Cursor tracking</li>
+                <li>✅ Syntax highlighting</li>
+                <li>✅ User presence</li>
+                <li>✅ Auto-sync on join</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-section">
+              <h3>💡 Tips</h3>
+              <ul class="tips-list">
+                <li>Share room ID with others</li>
+                <li>See real-time cursors</li>
+                <li>Changes sync instantly</li>
+                <li>Works on all devices</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
