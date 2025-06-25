@@ -130,42 +130,30 @@ app.use((err, req, res, next) => {
 // 8. User Model with Validation Create a User schema with email validation, password hashing pre-save hook, and a method to compare passwords.
 
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
     unique: true,
-    match: /.+\@.+\..+/,//it will validate the email format 
+    match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
   },
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 6,
   },
 });
 
-userSchema.methods.comparePassword = async function (candidatePassword) {
-  const isMatch = await bcrypt.compare(candidatePassword, this.password);
-  return isMatch;
-};
-
-const User = mongoose.model("User", userSchema);
-
 userSchema.pre("save", async function (next) {
-    if (this.isModified("password")) {
-        this.password = await hashPassword(this.password);
-    }
-    next();
+  if (!this.isModified("password")) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
 });
 
-async function hashPassword(password) {
-  const salt = await bcrypt.genSalt(10);
-  return await bcrypt.hash(password, salt);
-}
+userSchema.methods.comparePassword = function (candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
+};
 
-
-
-
-
+module.exports = mongoose.model("User", userSchema);
