@@ -5,7 +5,6 @@ import PostGenerator from "./components/PostGenerator";
 function App() {
   return (
     <>
-      {/* <TextSummarizer /> */}
       <PostGenerator />
     </>
   );
