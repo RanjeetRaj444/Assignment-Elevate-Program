@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #cbc9c9;
+}
+input,
+select {
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.25rem;
+  background-color: white;
+}
+button {
+  padding: 0.6rem 1.2rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}
