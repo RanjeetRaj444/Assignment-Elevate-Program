@@ -4,10 +4,19 @@ import Card from "./components/Card";
 function App() {
   const [allData, setAllData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [page, setPage] = useState(1);
 
   const limit = 5;
-
+  // Debounce logic for searchTerm
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchTerm);
+      setPage(1); 
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+  
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -22,7 +31,7 @@ function App() {
   };
 
   const filteredData = allData.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
 
   const totalPages = Math.ceil(filteredData.length / limit);
